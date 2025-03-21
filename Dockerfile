@@ -22,7 +22,7 @@ RUN apt-get update \
 EXPOSE $PORT
 
 ENTRYPOINT [ "poetry", "run" ]
-#CMD ["sh", "-c", "python lwqueue/clickhouse_queries.py"]
 
+#CMD ["sh", "-c", "python lwqueue/clickhouse_queries.py"]
 #CMD ["python", "lwqueue/clickhouse_queries.py", "-P", "5000", "-H", "0.0.0.0", "--debug" ]
 # for production ENTRYPOINT [ "python", "lwqueue/clickhouse_queries.py", "-P", "5000", "-H", "0.0.0.0" "--no-reloader" ]

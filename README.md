@@ -32,8 +32,9 @@ Now we are ready to begin using rabbitmq to automate the insertions!
 
 ## Visualize Analytic Data in real-time with either ``Streamlit`` or ``Taipy``.
 
-We use ``Taipy`` because of its capabilities to manage ``multithreads`` tasks.
+We should use ``Taipy`` because of its capabilities to manage ``multithreads`` tasks.
 
 Here a break down [documentation link](https://docs.taipy.io/en/latest/userman/run-deploy/deploy/docker/) to learn how to deploy taipy app.
 
+But we'll use ``Sreamlit`` for this demo.
 There is the [streamlit real-time data](https://blog.streamlit.io/how-to-build-a-real-time-live-dashboard-with-streamlit/) visualization version.
