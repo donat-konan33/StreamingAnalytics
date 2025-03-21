@@ -1,0 +1,55 @@
+version: "3.2"
+services:
+  rabbitmq:
+    image: rabbitmq:3.10.6-management
+    container_name: rmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=rmq
+    env_file:
+      - .env
+
+  clickhouse-server:
+    image: clickhouse/clickhouse-server:23.7.4.5-alpine
+    container_name: clickhousedb
+    ports:
+      - "8123:8123"  # Port HTTP par défaut pour ClickHouse (UI)
+      - "9000:9000"  # Port TCP par défaut pour ClickHouse
+    environment:
+      - CLICKHOUSE_DB=$CLICKHOUSE_DB
+      - CLICKHOUSE_USER=$CLICKHOUSE_USER
+      - CLICKHOUSE_PASSWORD=$CLICKHOUSE_PASSWORD
+      - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1  # Active la gestion des accès pour les utilisateurs
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+
+    env_file:
+      - .env
+    depends_on:
+      - rabbitmq
+
+  taipy-app:
+    build: .
+    command: ["python", "lwqueue/clickhouse_queries.py"]
+    ports:
+      - 5000:5000
+    depends_on:
+      - clickhouse-server
+      - rabbitmq
+
+  streamlit:
+    build:
+      context: .
+    restart: always
+    command: ["streamlit", "run", "lwqueue/streamlit_app.py"]
+    #environment:
+    ports:
+      - 8501:8501
+    stdin_open: true
+    tty: true
+
+
+volumes:
+  clickhouse_data:

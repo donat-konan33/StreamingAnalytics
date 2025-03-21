@@ -1,0 +1,5 @@
+.env
+receiver.py
+sender.py
+.taipy
+__pycache__/
