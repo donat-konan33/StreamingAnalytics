@@ -44,9 +44,18 @@ services:
       context: .
     restart: always
     command: ["streamlit", "run", "lwqueue/streamlit_app.py"]
-    #environment:
+    environment:
+      - CLICKHOUSE_DB=$CLICKHOUSE_DB
+      - CLICKHOUSE_USER=$CLICKHOUSE_USER
+      - CLICKHOUSE_PASSWORD=$CLICKHOUSE_PASSWORD
+
     ports:
       - 8501:8501
+    depends_on:
+      - clickhouse-server
+      - rabbitmq
+    volumes:
+      - ./lwqueue:/app/lwqueue
     stdin_open: true
     tty: true
 

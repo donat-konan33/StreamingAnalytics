@@ -15,7 +15,7 @@ def query_clickhouse(query):
     """
 
     with Client(
-        host="localhost",
+        host="clickhouse-server",
         port=9000,
         user=os.environ.get("CLICKHOUSE_USER"),
         password=os.environ.get("CLICKHOUSE_PASSWORD"),

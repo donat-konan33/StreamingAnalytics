@@ -1,4 +1,4 @@
-FROM python:3.8.14-slim
+FROM python:3.9.20-slim
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -14,6 +14,7 @@ COPY ./poetry.lock  ./poetry.lock
 
 RUN apt-get update \
     && apt-get -y upgrade \
+    && pip install --upgrade pip \
     && pip3 install --no-cache-dir poetry==2.0.1 \
     && poetry install --only main \
     && apt-get clean \

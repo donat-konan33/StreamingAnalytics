@@ -1,4 +1,19 @@
 
+
+``RabbitMQ`` is a message broker. It is composed of ````Exchange````, ``Queue``.
+
+This one can receive a message from a ``producer`` and process it in a ``queue``, then transfers transformations to the relevant ``consumer`` by a ``Exchange and Queue Binding`` system.
+
+An image worths than several words 🙂! Let's look at👇
+
+![message broker concept](https://www.cloudamqp.com/img/blog/exchanges-bidings-routing-keys.png)
+
+
+I recommend you to see a [break down](https://www.cloudamqp.com/blog/part1-rabbitmq-for-beginners-what-is-rabbitmq.html) of this concept.
+
+According to that, we can achieve a real-time analytic project with this concept as an Analytic Engineer.
+Note that this project is a ``use case``.
+
 ## Setup the table In Clikhouse
 
 Now we need to setup a table named `user_messages` to store our messages which will store

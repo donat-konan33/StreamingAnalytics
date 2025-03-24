@@ -1289,25 +1289,6 @@ files = [
 ]
 
 [[package]]
-name = "lewagonde"
-version = "0.1.0"
-description = ""
-optional = false
-python-versions = "^3.8"
-groups = ["main"]
-files = []
-develop = true
-
-[package.dependencies]
-pandas = "^1.4.2"
-psycopg2-binary = "^2.9.3"
-PyYAML = "^6.0"
-
-[package.source]
-type = "directory"
-url = "../data-engineering-challenges/common/lewagonde"
-
-[[package]]
 name = "lock"
 version = "2018.3.25.2110"
 description = "module for enabling file locks"
@@ -3317,4 +3298,4 @@ testing = ["coverage[toml]", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.9,<3.9.7 || >3.9.7,<4.0"
-content-hash = "7612d89061c0f202c6de2505f382f11262dd9a8c6e1547151d5c5177987ba9fb"
+content-hash = "0b5c6c3a033219cd9c3246b3f44271f994df8105a600acc209e078ff2b9a6db0"
